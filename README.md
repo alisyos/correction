@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI 문장 교정 시스템
 
-## Getting Started
+OpenAI API를 활용한 전문적인 문장 교정 및 정리 도구입니다.
 
-First, run the development server:
+## 주요 기능
 
+- **파일 업로드**: txt, word 파일 직접 업로드 및 텍스트 추출
+- **문체별 교정**: 격식체, 평어체, 개조식 등 다양한 문체로 교정
+- **목적별 톤 조정**: 내부 보고, 외부 보고, 일반 문서 작성용으로 톤 조정
+- **맞춤형 요청**: 추가적인 교정 요청사항 반영
+- **원클릭 복사**: 교정된 텍스트를 쉽게 복사
+- **반응형 UI**: 모바일과 데스크톱 모두 지원
+
+## 기술 스택
+
+- **Frontend**: Next.js 14, React, TypeScript, Tailwind CSS
+- **Backend**: Next.js API Routes
+- **AI**: OpenAI GPT-4.1
+- **UI Icons**: Lucide React
+- **Deployment**: Vercel
+
+## 설치 및 실행
+
+1. 프로젝트 클론
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd correction
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. 패키지 설치
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. 환경 변수 설정
+```bash
+cp .env.example .env.local
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`.env.local` 파일에 OpenAI API 키를 설정하세요:
+```env
+OPENAI_API_KEY=your_openai_api_key_here
+```
 
-## Learn More
+4. 개발 서버 실행
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+5. 브라우저에서 `http://localhost:3000` 접속
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 사용 방법
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **파일 업로드**: txt 또는 word 파일을 업로드하거나 직접 입력합니다.
+2. **문장 입력**: 교정하고 싶은 문장이나 메모를 입력합니다.
+3. **문체 선택**: 원하는 문체(격식체/평어체/개조식)를 선택합니다.
+4. **목적 선택**: 사용 목적(내부보고/외부보고/문서작성)을 선택합니다.
+5. **추가 요청**: 필요시 추가적인 요청사항을 입력합니다.
+6. **교정 실행**: "문장 교정" 버튼을 클릭하여 AI 교정을 받습니다.
+7. **결과 확인**: 교정된 문장을 확인하고 복사 버튼으로 쉽게 복사할 수 있습니다.
 
-## Deploy on Vercel
+## Vercel 배포
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Vercel 계정에 프로젝트를 연결합니다.
+2. 환경 변수에 `OPENAI_API_KEY`를 설정합니다.
+3. 자동으로 배포가 완료됩니다.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 문체 옵션
+
+- **격식체**: 공식적인 문서나 보고서용 (-합니다, -했습니다)
+- **평어체**: 간결한 업무용 문서 (-함, -했음)
+- **개조식**: 발표자료나 요약용 (글머리 기호 활용)
+
+## 사용 목적별 톤 조정
+
+- **내부 보고**: 업무적이고 효율적인 톤
+- **외부 보고**: 전문적이고 신뢰할 수 있는 톤
+- **문서 작성**: 명확하고 체계적인 톤
+
+## 라이선스
+
+MIT License

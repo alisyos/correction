@@ -73,19 +73,10 @@ export default function Home() {
     const file = event.target.files?.[0];
     if (!file) return;
 
-    // 파일 확장자 검증 (더 신뢰할 수 있음)
+    // 파일 확장자 검증
     const fileName = file.name.toLowerCase();
     const allowedExtensions = ['.txt', '.doc', '.docx'];
     const isValidExtension = allowedExtensions.some(ext => fileName.endsWith(ext));
-    
-    // MIME 타입 검증 (보조적으로 사용)
-    const allowedTypes = [
-      'text/plain',
-      'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-      'application/msword',
-      'application/octet-stream', // 일부 시스템에서 워드 파일의 기본 MIME 타입
-      '' // 일부 브라우저에서 빈 문자열로 반환되는 경우
-    ];
     
     console.log('파일 정보:', { name: file.name, type: file.type, size: file.size });
     

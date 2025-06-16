@@ -27,7 +27,17 @@ export async function POST(request: NextRequest) {
       temperature: 0.3,
     });
 
-    const correctedText = completion.choices[0]?.message?.content || '';
+    let correctedText = completion.choices[0]?.message?.content || '';
+
+    // GPT 응답이 JSON 형태인지 확인하고 파싱
+    try {
+      const jsonResponse = JSON.parse(correctedText);
+      if (jsonResponse.correctedText) {
+        correctedText = jsonResponse.correctedText;
+      }
+    } catch {
+      // JSON이 아닌 경우 그대로 사용 (기존 동작 유지)
+    }
 
     return NextResponse.json({ correctedText });
   } catch (error) {

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Copy, FileText, Wand2, Loader2, Upload, X } from 'lucide-react';
+import { Copy, FileText, Wand2, Loader2, Upload, X, Settings } from 'lucide-react';
 import * as mammoth from 'mammoth';
 
 export default function Home() {
@@ -155,20 +155,29 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
-      <div className="max-w-4xl mx-auto">
+    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-6">
+      <div className="max-w-7xl mx-auto">
         {/* 헤더 */}
         <div className="text-center mb-8">
-          <div className="flex items-center justify-center gap-2 mb-2">
+          <div className="flex items-center justify-center gap-2 mb-2 relative">
             <Wand2 className="w-8 h-8 text-indigo-600" />
             <h1 className="text-3xl font-bold text-gray-800">AI 문장 교정 시스템</h1>
+            <a
+              href="/admin"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute right-0 flex items-center gap-1 text-sm text-gray-500 hover:text-indigo-600 border border-gray-300 hover:border-indigo-300 px-3 py-1 rounded-lg transition-colors"
+            >
+              <Settings className="w-4 h-4" />
+              관리자
+            </a>
           </div>
           <p className="text-gray-600">OpenAI를 활용한 전문적인 문장 교정 및 정리 도구</p>
         </div>
 
-                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
            {/* 입력 영역 */}
-           <div className="lg:col-span-2 bg-white rounded-xl shadow-lg p-6">
+           <div className="lg:col-span-2 bg-white rounded-xl shadow-lg p-8">
                          <div className="flex items-center gap-2 mb-4">
                <FileText className="w-5 h-5 text-indigo-600" />
                <h2 className="text-xl font-semibold text-gray-800">입력</h2>
@@ -363,7 +372,7 @@ export default function Home() {
           </div>
 
                      {/* 출력 영역 */}
-           <div className="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
+           <div className="lg:col-span-3 bg-white rounded-xl shadow-lg p-8">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
                 <FileText className="w-5 h-5 text-green-600" />
@@ -394,8 +403,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* 사용 안내 */}
-        <div className="mt-8 bg-white rounded-xl shadow-lg p-6">
+                 {/* 사용 안내 */}
+         <div className="mt-8 bg-white rounded-xl shadow-lg p-8">
           <h3 className="text-lg font-semibold text-gray-800 mb-4">사용 안내</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-600">
             <div className="p-4 bg-blue-50 rounded-lg">

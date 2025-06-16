@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Save, RefreshCw, Settings, FileText, Target, MessageSquare } from 'lucide-react';
+import { Save, RefreshCw, Settings, FileText, Target, MessageSquare, Home } from 'lucide-react';
 
 interface PromptsData {
   common: string;
@@ -135,6 +135,13 @@ export default function AdminPage() {
               </div>
             </div>
             <div className="flex gap-3">
+              <a
+                href="/"
+                className="flex items-center gap-2 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+              >
+                <Home className="w-4 h-4" />
+                메인으로
+              </a>
               <button
                 onClick={loadPrompts}
                 disabled={loading}
